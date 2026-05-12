@@ -268,6 +268,27 @@ Add `--agent` to any command. Expands to: `--json --compact --no-input --no-colo
 - **Non-interactive** — never prompts, every input is a flag
 - **Explicit retries** — use `--idempotent` only when an already-existing create should count as success
 
+### Mutation safety (cart + delivery commands)
+
+`cart checkout` places a real order — money leaves the user's account, groceries are
+scheduled for delivery. This is the one command an agent MUST always preview with
+`--dry-run` and then get explicit human confirmation before running for real.
+
+The other cart mutations (`cart add`, `cart remove`, `cart clear`, `cart set-slot`) and
+`reorder <id> --confirm` are reversible from the Picnic app or via the inverse CLI
+command. By default agents should still preview these with `--dry-run` and confirm
+once. If the user has said something like "skip the preview" or "snel" for the
+current session, agents may run these mutations directly and report the result
+afterwards — but only those four. `cart checkout` is the no-shortcut command.
+
+| Command | Default behavior | Shortcut allowed? |
+|---------|------------------|-------------------|
+| `cart add` / `remove` / `clear` / `set-slot` | dry-run → confirm → execute | yes, on explicit user request |
+| `reorder <id>` | dry-run prints plan; `--confirm` required to mutate | yes, on explicit user request |
+| `deliveries cancel <id>` | preview → `--confirm` flag required | yes, on explicit user request |
+| `cart checkout` | dry-run → confirm → execute | **no — always preview + confirm** |
+| Read commands (`cart get`, `deliveries list`, etc.) | run directly | always |
+
 ### Response envelope
 
 Commands that read from the local store or the API wrap output in a provenance envelope:
