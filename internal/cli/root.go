@@ -218,6 +218,7 @@ See README.md or the bundled SKILL.md for recipes.`,
 	rootCmd.AddCommand(newSpendTrendCmd(flags))
 	rootCmd.AddCommand(newDriftCmd(flags))
 	rootCmd.AddCommand(newReorderCmd(flags))
+	rootCmd.AddCommand(newAanbiedingenCmd(flags))
 
 	return rootCmd
 }
