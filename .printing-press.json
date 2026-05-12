@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-12T19:40:10.8550932Z",
+  "printing_press_version": "4.3.0",
+  "api_name": "picnic",
+  "cli_name": "picnic-pp-cli",
+  "run_id": "20260512-211827",
+  "printer": "Pimmetjeoss",
+  "printer_name": "Pimmetjeoss",
+  "novel_features": [
+    {
+      "name": "Offline FTS search",
+      "command": "search",
+      "description": "Search every article you've ever seen on Picnic locally, instantly, with no API hit."
+    },
+    {
+      "name": "Reorder past delivery",
+      "command": "reorder",
+      "description": "Re-add every article from a previous delivery to your current cart in one shot."
+    },
+    {
+      "name": "Spend trend",
+      "command": "spend-trend",
+      "description": "See spend per month or category from your wallet history, with deltas vs prior period."
+    },
+    {
+      "name": "Slot watch",
+      "command": "slot-watch",
+      "description": "Poll for delivery slots that match a weekday/time-window filter and exit zero when one opens."
+    },
+    {
+      "name": "Pantry recurring",
+      "command": "pantry-recurring",
+      "description": "Predict re-buy candidates: articles ordered N or more times in the last K weeks."
+    },
+    {
+      "name": "Price drift",
+      "command": "drift",
+      "description": "Surface price changes on watched articles across local store snapshots."
+    },
+    {
+      "name": "What changed since",
+      "command": "since",
+      "description": "Aggregate new deliveries, wallet entries, and cart edits since a relative timestamp."
+    },
+    {
+      "name": "SQL escape hatch",
+      "command": "sql",
+      "description": "Read-only SQL against the local Picnic store for ad-hoc questions."
+    },
+    {
+      "name": "Export",
+      "command": "export",
+      "description": "Dump the entire local store as JSON, CSV, or NDJSON."
+    },
+    {
+      "name": "Doctor",
+      "command": "doctor",
+      "description": "Health check: auth valid, base URL reachable, store schema OK."
+    }
+  ]
+}

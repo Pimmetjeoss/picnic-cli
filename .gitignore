@@ -1,0 +1,31 @@
+# Compiled binaries
+picnic-pp-cli
+picnic-pp-cli.exe
+picnic-pp-mcp
+picnic-pp-mcp.exe
+picnic.exe
+*.test
+*.out
+
+# Transient build / verify artifacts (regenerated on each run)
+dogfood-results.json
+workflow-verify-report.json
+.printing-press-tools-polish.json
+.printing-press-pii-polish.json
+banaan-raw.json
+banaan.json
+
+# Local config / secrets (the CLI stores tokens under ~/.config/picnic-pp-cli)
+*.env
+.env
+.env.*
+config.toml
+*.tok
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.bak
